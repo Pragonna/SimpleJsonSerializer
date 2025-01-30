@@ -10,7 +10,7 @@ namespace MyJsonSerializer
         /// Serializes an object to a json string
         /// </summary>
         /// <param name="obj"></param>
-        /// <returns>string in json format</returns>
+        /// <returns>string</returns>
         public static string Serialize(object obj)
         {
             var builder = new StringBuilder();
@@ -64,7 +64,7 @@ namespace MyJsonSerializer
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="json"></param>
-        /// <returns>T object</returns>
+        /// <returns>T</returns>
         public static T Deserialize<T>(string json) where T : class , new()
         {
             int index = 0;
