@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Reflection;
 using System.Text;
 
@@ -113,7 +113,7 @@ namespace MyJsonSerializer
 
                 SkipWhiteSpace(json, ref index);
 
-                object value = ParseValue(json, ref index, properties, key, argIsNotValueType); // get the value of the property (example: "John Doe")
+                object value = ParseValue(json, ref index, properties, key, argIsNotValueType); // get the value of the property 
 
                 foreach (var prop in properties)
                 {
