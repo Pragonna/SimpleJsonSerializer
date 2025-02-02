@@ -57,7 +57,7 @@ namespace MyJsonSerializer.Test
         }
 
         [Fact]
-        public void Serializer_WhenSerializeObject_ShouldBeEqual()
+        public void SerializerDeserializer_WhenSerializeObject_ShouldBeEqual()
         {
             var json = MyJsonSerializer.Serialize(person);
             var _person = MyJsonSerializer.Deserialize<Person>(json);
