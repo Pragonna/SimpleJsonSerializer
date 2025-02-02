@@ -1,4 +1,4 @@
-﻿using System.Text;
+using System.Text;
 
 namespace MyJsonSerializer
 {
@@ -53,7 +53,7 @@ namespace MyJsonSerializer
             return builder.ToString();
         }
 
-        public static string SerializeEnumerable<T>(object obj, Type[] arguments)
+        private static string SerializeEnumerable<T>(object obj, Type[] arguments)
         {
             var builder = new StringBuilder();
             bool hasMember = false;
