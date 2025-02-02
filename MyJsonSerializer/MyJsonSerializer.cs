@@ -18,10 +18,9 @@ namespace MyJsonSerializer
         /// <typeparam name="T"></typeparam>
         /// <param name="json"></param>
         /// <returns>T</returns>
-        public static T Deserialize<T>(string json) where T : class , new()
+        public static T Deserialize<T>(string json) where T : class, new()
         {
-            int index = 0;
-            return (T)Deserializer.ParseObject(json, ref index, typeof(T));
+            return (T)Deserialize(json, typeof(T));
         }
         /// <summary>
         /// Deserializes a json string to an object of a specific type. Must be casted to the desired type
