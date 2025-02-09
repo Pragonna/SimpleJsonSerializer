@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Reflection;
 using System.Text;
 
@@ -44,6 +44,18 @@ namespace MyJsonSerializer
                         else if (prop.PropertyType == typeof(DateTime))
                             value = DateTime.Parse(value.ToString());
 
+                        else if (prop.PropertyType == typeof(char))
+                        {
+                            try
+                             {
+                              value = Convert.ToChar(value.ToString());
+                             }
+                            catch (Exception)
+                            {
+                                // Handle invalid conversion (optional: log the error or throw a more descriptive exception)
+                                throw new InvalidCastException($"Cannot convert '{value}' to a char.");
+                            }
+                        }
                         else if (prop.PropertyType.IsArray)
                         {
                             var elementType = prop.PropertyType.GetElementType();
