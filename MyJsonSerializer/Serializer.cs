@@ -21,7 +21,7 @@ namespace MyJsonSerializer
 
             foreach (var property in properties)
             {
-                if (property.PropertyType == typeof(string) || property.PropertyType == typeof(DateTime) || property.PropertyType == typeof(Guid))
+                if (property.PropertyType == typeof(string) || property.PropertyType == typeof(char)|| property.PropertyType == typeof(DateTime) || property.PropertyType == typeof(Guid))
                 {
                     builder.Append($"\"{property.Name}\":\"{property.GetValue(obj)}\",");
                 }
