@@ -50,7 +50,7 @@ John Doe
 
 ## Supported Data Types
 - `string`
-- `int`, `double`, `decimal`, `bool`
+- `int`, `double`, `decimal`, `bool`,`char`
 - `DateTime`, `Guid`
 - `Array` and `List<T>`
 - Nested objects
