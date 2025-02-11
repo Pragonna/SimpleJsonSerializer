@@ -61,7 +61,7 @@ namespace MyJsonSerializer
 
             if (arguments.Count() == 1)
             {
-                if (arguments[0] == typeof(string) || arguments[0] == typeof(DateTime) || arguments[0] == typeof(Guid))
+                if (arguments[0] == typeof(string) || arguments[0] == typeof(char) || arguments[0] == typeof(DateTime) || arguments[0] == typeof(Guid))
                 {
                     foreach (var item in (IEnumerable<T>)obj)
                     {
@@ -103,15 +103,7 @@ namespace MyJsonSerializer
             builder.Append("[");
 
             var elementType = obj.GetType().GetElementType();
-            if (elementType.IsPrimitive || elementType == typeof(decimal))
-            {
-                foreach (var item in (Array)obj)
-                {
-                    builder.Append($"{item},");
-                    hasMember = true;
-                }
-            }
-            else if (elementType == typeof(string) || elementType == typeof(DateTime) || elementType == typeof(Guid))
+            if (elementType == typeof(string) || elementType == typeof(char) || elementType == typeof(DateTime) || elementType == typeof(Guid))
             {
                 foreach (var item in (Array)obj)
                 {
@@ -119,6 +111,15 @@ namespace MyJsonSerializer
                     hasMember = true;
                 }
             }
+            else if (elementType.IsPrimitive || elementType == typeof(decimal))
+            {
+                foreach (var item in (Array)obj)
+                {
+                    builder.Append($"{item},");
+                    hasMember = true;
+                }
+            }
+           
             else
             {
                 foreach (var item in (Array)obj)
