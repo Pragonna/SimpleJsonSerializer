@@ -40,27 +40,15 @@ namespace MyJsonSerializer.Test
                 }
             };
         }
-        [Fact]
-        public void Serializer_WhenSerializeObject_ShouldNotBeNull()
-        {
-            var json = MyJsonSerializer.Serialize(person);
-
-            json.Should().NotBeNull();
-        }
 
         [Fact]
-        public void Deserializer_WhenDeserializeObject_ShouldNotBeNull()
+        public void SerializerDeserializer_WhenSerializeObject_ShouldBeNotNull_ShouldBeEqual()
         {
             var json = MyJsonSerializer.Serialize(person);
             var _person = MyJsonSerializer.Deserialize<Person>(json);
+
+             json.Should().NotBeNull();
             _person.Should().NotBeNull();
-        }
-
-        [Fact]
-        public void SerializerDeserializer_WhenSerializeObject_ShouldBeEqual()
-        {
-            var json = MyJsonSerializer.Serialize(person);
-            var _person = MyJsonSerializer.Deserialize<Person>(json);
             _person.Should().BeEquivalentTo(person);
         }
     }
